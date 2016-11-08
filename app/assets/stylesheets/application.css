@@ -19,34 +19,55 @@
 /* sidebar menu list */
 
 /*body, html {height:100%;}*/
+/*.whole-page-padding-top {
+	padding-top: 10px;
+}
+*/
 .first-border {
 	border-right: 1px solid gray;
 	height: 100%;
-	padding: 10px;
+	position: relative;
 }
 
 .sidebar-menu {
 	padding-left: 10px;
 }
 
-.sidebar-menu-list {
+.sidebar-menu-list{
+	list-style: none;
+	padding-left: 20px;
+}
+.horizontal-line-margin {
+	margin-right: 14px;
+}
+.sidebar-menu-list-down {
+	margin-bottom: 20px;
 	list-style: none;
 }
+
+.glyphicon-plus {
+	font-size: 14px;
+}
+
 .sidebar-menu-list-items {
 	font-family: inherit;
-	font-size: 15px;
+	color: white;
+	font-size: 13px;
 	width: 95%;
 	height: 50px;
 	padding-top: 15px;
 	margin-top: 10px;	
 	margin-right: 10px;
 }
-
+.sidebar-menu-list-items-down:hover {
+	text-decoration:none;
+}
 
 .right-first-border {
 	border-left: 1px solid gray;
 	height: 100%;
 	padding: 10px;
+	position: relative;
 }
 
 .right-sidebar-menu {
@@ -68,3 +89,24 @@
 
 
 
+.mdl-layout {
+  align-items: center;
+  justify-content: center;
+}
+.mdl-layout__content {
+  padding: 24px;
+  flex: none;
+}
+
+.glyphicons-color {
+	color: #7d8aaf;
+}
+
+.glyphicon {
+	margin-right: 14px;
+}
+
+.tags-width {
+	width: 100%;
+	text-align: left;
+}
