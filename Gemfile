@@ -10,7 +10,6 @@ gem 'faker', '1.6.3'
 gem 'carrierwave', '0.11.2'
 gem 'mini_magick', '4.5.1'
 gem 'material_design_lite-sass'
-
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -52,6 +51,7 @@ group :development do
 end
 
 group :production do 
+#	gem 'pg', '0.18.4'
 	#sgem 'pg', '0.18.4'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
