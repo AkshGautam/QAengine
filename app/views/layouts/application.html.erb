@@ -17,13 +17,13 @@
   			<div class="alert alert-<%=message_type%>"><%= message%></div>
   		<% end %>
 	<div class="mdl-grid ">
-		<div class="mdl-cell mdl-cell--2-col">
+		<div class="col-md-2">
 		  	<%= render 'layouts/header_sidebar' %>
 		</div>
-		<div class="mdl-cell mdl-cell--8-col">
+		<div class="col-md-8">
 		    <%= yield %>
     </div>
-		<div class="mdl-cell mdl-cell--2-col">
+		<div class="col-md-2">
 		  	<%= render 'layouts/header_right_sidebar' %>
     </div>
 	</div>
