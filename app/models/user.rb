@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-	 attr_accessor :remember_token
+	has_many :questions, dependent: :destroy
+  default_scope -> {order(created_at: :desc)}
+  attr_accessor :remember_token
 	before_save { self.email = email.downcase}
 	validates :name, presence: true, length: {:maximum => 50}
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+\.[a-z]+\z/i
@@ -11,6 +13,10 @@ class User < ApplicationRecord
 	validates :state, :presence => true
 	validates :institution, :presence => true
 	has_secure_password
+
+  def feed
+    Question.where("user_id = ?", id)
+  end
 
 	 def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
