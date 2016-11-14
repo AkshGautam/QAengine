@@ -1,0 +1,22 @@
+  <%if @users.empty?%>
+<h1>No users found</h1>
+<%else%>
+  <% @users.each do |user| %>
+ <ul >
+    <li class="users">
+      <%= gravatar_for user, size: 50 %>
+      <%= link_to "Profile", user %>
+      <div class="prof">
+      <%=user.name%>
+      <br>
+      <%=user.city%>
+      <br>
+      <%=user.state%>
+      <br>
+      <%=user.institution%>
+      </div>
+    </li>
+</ul>
+  <% end %>
+  <br>
+  <%end%>
