@@ -4,6 +4,7 @@ class Question < ApplicationRecord
       params.require(:feed_items).permit(:tag_list)
     end
 	acts_as_taggable
+  acts_as_votable
   belongs_to :user
   has_many :comments, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
