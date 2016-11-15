@@ -4,8 +4,7 @@
   <% @users.each do |user| %>
  <ul >
     <li class="users">
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to "Profile", user %>
+      <%= link_to gravatar_for(user, size: 100), user %>
       <div class="prof">
       <%=user.name%>
       <br>

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @questions = @user.questions
+    # @comments = @questions.comments
   end
 
   def create
@@ -20,8 +21,23 @@ class UsersController < ApplicationController
   		render 'new'
   	end
   end
+
   def edit
     @user=User.find(params[:id])
+  end
+
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follow'
   end
 
   def search
@@ -30,6 +46,7 @@ class UsersController < ApplicationController
   end
 
   def term
+    
   end
 
 def update
@@ -41,6 +58,7 @@ def update
       render 'edit'
     end
   end
+
   private
   	def user_params
   		params.require(:user).permit(:name, :email, :city, :state, :institution, :password, :password_confirmation)

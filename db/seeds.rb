@@ -15,7 +15,7 @@ User.create!(name:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar")
 
-99.times do |n|
+20.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   city =  "Mandi"
@@ -33,8 +33,15 @@ User.create!(name:  "Example User",
                password_confirmation: password)
 end
 
-users = User.order(:created_at).take(6)
-50.times do
+users = User.order(:created_at).take(10)
+20.times do
 content = Faker::Lorem.sentence(5)
 users.each { |user| user.questions.create!(content: content) }
 end
+
+users = User.all
+user  = users.first
+following = users[2..18]
+followers = users[3..12]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
