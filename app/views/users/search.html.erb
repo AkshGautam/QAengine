@@ -1,7 +1,6 @@
   <%if @users.empty?%>
 <h1>No users found</h1>
 <%else%>
-<%= will_paginate %>
   <% @users.each do |user| %>
  <ul >
     <li class="users">
@@ -19,6 +18,5 @@
     </li>
 </ul>
   <% end %>
-  <%= will_paginate %>
   <br>
   <%end%>
