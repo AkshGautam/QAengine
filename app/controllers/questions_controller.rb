@@ -11,6 +11,13 @@ class QuestionsController < ApplicationController
 			redirect_to root_url
 		end
 	end
+	def index
+		if params[:tag]
+			@question=Question.tagged_with(params[:tag])
+			else
+		@question=Question.all
+	end
+	end
 
 	def destroy
 		@question.destroy
@@ -20,7 +27,7 @@ class QuestionsController < ApplicationController
 
 	private
 		def question_params
-			params.require(:question).permit(:content)
+			params.require(:question).permit(:content,:tag_list)
 		end
 
 		def correct_user

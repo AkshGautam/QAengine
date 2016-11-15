@@ -17,12 +17,15 @@
         	<%= form_for(@question) do |f| %>
 				<div class="field">
 				    <%= f.text_area :content, placeholder: "Ask A Question..." %>
+			    <%=f.label :tag_list,"Tags(Separated by Commas)"%><br/>
+  				<%=f.text_field :tag_list%>
 			    </div>
 			    <%= f.submit "Post", class: "btn btn-primary" %>
 			<% end %>
 	    </section>
     </aside>
   </div>
+ 
     <div class="col-md-8">
       <h3>Question Feed</h3>
       	<% if @feed_items.any? %>
@@ -39,6 +42,9 @@
 						<span class="timestamp">
 							Posted <%= time_ago_in_words(question.created_at) %> ago.
 						</span>
+						 <p>
+    					Tags:<%=raw question.tag_list.map{|t| link_to t,tag_path(t)}.join(', ')%>
+   						 </p>
 						<% if current_user == question.user %>
 					        <%= link_to "delete", question, method: :delete, data: { confirm: "You sure?" } %>
     					<% end %>
@@ -48,6 +54,7 @@
 			</ol>
 		<% end %>
     </div>
+   
 <% else %>
   Sign up Now 
 <% end %>

@@ -14,6 +14,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'material_design_lite-sass'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+#gem 'protected_attributes'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
