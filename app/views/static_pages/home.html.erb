@@ -3,24 +3,25 @@
 <% if logged_in? %>
   <div >
     <div>
-      	<section class="user_info">
+      	<div class="user_info">
 	      	<h2>
 				<%=link_to gravatar_for(current_user, size: 80), current_user%>
 				<%= link_to current_user.name , current_user %>
 			</h2>
-			<span>
-				<%= pluralize(current_user.questions.count, "Question") %>
-			</span>
-	    </section>
+	    </div>
 	    
-      	<section class="question_form">
-        	<%= form_for @question, remote: true do |f| %>
-				<div id="field">
-				    <%= f.text_area :content, class: "clear-question-field", placeholder: "Ask A Question..." %>
+      	<div class=""> 
+        	<%= form_for(@question, remote: true) do |f| %>
+				<div class="question-form">
+				    <%= f.text_area :content, placeholder: "Ask A Question...",class: "question-form-field" %>
+				    <%= f.text_field :tag_list, placeholder: "Tags(Seperated by Commas)...", class: "tags-form-field" %>
+				    <div class="question-form-button">
+					    <%= f.submit "Post", class: "btn btn-primary question-form-button-size" %>
+				    </div>
+				    <p class="clearme-right"></p>
 			    </div>
-			    <%= f.submit "Post", class: "btn btn-primary" %>
 			<% end %>
-	    </section>
+	    </div>
     </div>
   </div>
     <div class="question-feed">
@@ -28,6 +29,7 @@
       	<% if @feed_items.any? %>
 	    	<ol class="microposts">
 				<% @feed_items.each do |question| %>
+					
 					<div id="question-<%=question.id%>">
 						<!-- <b>home mein question id = <%=question.id%></b> -->
 						<div id="after-delete-comment-<%=question.id%>">
@@ -60,6 +62,9 @@
 							<% if current_user == question.user %>
 						        <%= link_to "delete", question, method: :delete, data: { confirm: "You sure?"}, remote: true %>
 	    					<% end %>
+	    					 <p>
+		    					Tags:<%=raw question.tag_list.map{|t| link_to t,tag_path(t)}.join(', ')%>
+	   						 </p>
 	    					<span class="comment-section-<%=question.id%>">
 								<% if question.comments.any? %>
 									<% question.comments.each do |c| %>
@@ -80,13 +85,11 @@
 					    					<% end %>
 									    </span>
 									<% end %>
-								<% else %>
-									Hello World;
 								<% end %>
 	    						<%= form_for question.user.comments.build, remote: true do |f| %>
 									<div class="field">
 									    <%= f.text_area :content, class: "clear-comment-field", placeholder: "Comment here..." %>
-									    <%= f.number_field :question_id, :value => question.id %>
+									    <%= f.number_field :question_id, :value => question.id, class: "comment-field-id" %>
 								    </div>
 								    <%= f.submit "Post", class: "btn btn-primary" %>
 								<% end %>
@@ -98,6 +101,7 @@
 			</ol>
 		<% end %>
     </div>
+   
 <% else %>
   Sign up Now 
 <% end %>

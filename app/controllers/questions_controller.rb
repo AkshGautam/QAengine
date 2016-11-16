@@ -29,6 +29,16 @@ class QuestionsController < ApplicationController
 				
 		end
 	end
+	def index
+		if params[:tag]
+			@question=Question.tagged_with(params[:tag])
+			@questions = Question.all
+			@users = current_user
+			@following_users = current_user
+			else
+		@question=Question.all
+	end
+	end
 
 	def destroy
 		@question.destroy
@@ -65,7 +75,7 @@ class QuestionsController < ApplicationController
 
 	private
 		def question_params
-			params.require(:question).permit(:content)
+			params.require(:question).permit(:content,:tag_list)
 		end
 
 		def correct_user

@@ -234,9 +234,70 @@ hr {
 
 /*---------------------------------Home Page CSS----------------------------------*/
 
+
+/*-------Top Question Bar------ */
+.gravatar {
+	border-radius: 60%;
+	/*border:1px solid black;*/
+	z-index: 100;
+}
+
 .question-feed {
 	width: 100%;
 }
+
+.question-form {
+	margin-bottom: 1%;
+}
+
+.question-form-button {
+	float: right;
+	margin-top: 1%;
+	margin-right: 13.5%;
+}
+
+.question-form-button-size {
+	width: 150%;
+}
+
+.question-form-field {
+	width: 90%;
+	height: 70px;
+	border:0.6px solid gray-lighter;
+	border-radius:10px;
+	outline: none;
+	padding-left: 1%;
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+	/*border-left: none;*/
+	/*border-right: none;*/
+}
+
+.tags-form-field {
+	width: 40%;
+	margin-bottom: 3%;
+	margin-top: 1%;
+	border-radius:10px;
+	border-style: groove;
+	outline: none;
+	padding-left: 1%;
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+}
+/*-------------------------------*/
+
+/*-----Display Question section---*/
+.content {
+	width: 100%;
+}
+/*--------------------------------*/
+
+/*-----Display comment section---*/
+
+.comment-field-id {
+	display: none;
+}
+/*-------------------------------*/
 
 /*--------------------------------------------------------------------------------*/
 
@@ -362,4 +423,18 @@ img:hover
 }
 .tag::-webkit-input-placeholder {
 	color: #999;
+
+}
+.box
+{
+	padding-top: 25px;
+	padding-right: 30px;
+}
+#tag_cloud
+{
+	width: 400px;
+	line-height: 1.6em;
+	.s{font-size: 0.8em;}
+	.m{font-size: 1.2em;}
+	.l{font-size: 1.8em;}
 }

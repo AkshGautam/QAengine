@@ -33,7 +33,8 @@ class UsersController < ApplicationController
 
   def following
     @title = "Following"
-    @user  = User.find(params[:id])
+    @user = current_user
+    # @user  = User.find(params[:id])
     @users = @user.following
     @following_users = @user
     @questions = Question.all
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
 
   def followers
     @title = "Followers"
-    @user  = User.find(params[:id])
+    @user = current_user
     @users = @user.followers
     @following_users = @user
     @questions = Question.all
@@ -53,7 +54,8 @@ class UsersController < ApplicationController
 
   def search
     #@users=User.search(params)
-    @questions = Question.all
+    @questions = current_user.questions
+    @following_users = current_user
     @user_all = User.all
     @users=User.where("name LIKE ?","#{params[:search]}%")
   end

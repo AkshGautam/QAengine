@@ -22,6 +22,10 @@ class StaticPagesController < ApplicationController
   end
 
   def term
+    @users = current_user
+    @questions = @users.questions
+    @following_users = current_user
+    @user_all = User.all
   end 
 
 end
