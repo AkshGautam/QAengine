@@ -1,35 +1,18 @@
 <% provide(:title, "QAengine")%>
 
 <% if logged_in? %>
-  <div class="row">
-    <aside class="col-md-4">
+  <div >
+    <div>
       	<section class="user_info">
-        	<%= link_to gravatar_for(current_user, size: 50), current_user %>
-			<h1><%= current_user.name %></h1>
-			<span>
-				<%= link_to "view my profile", current_user %>
-			</span>
+	      	<h2>
+				<%=link_to gravatar_for(current_user, size: 80), current_user%>
+				<%= link_to current_user.name , current_user %>
+			</h2>
 			<span>
 				<%= pluralize(current_user.questions.count, "Question") %>
 			</span>
 	    </section>
-	    <section class="stats">
-	       <%= @users.name %>
-			<div class="stats">
-			  <a href="<%= following_user_path(@users) %>">
-			    <strong id="following" class="stat">
-			      <%= @users.following.count %>
-			    </strong>
-			    following
-			  </a>
-			  <a href="<%= followers_user_path(@users) %>">
-			    <strong id="followers" class="stat">
-			      <%= @users.followers.count %>
-			    </strong>
-			    followers
-			  </a>
-			</div>
-	    </section>
+	    
       	<section class="question_form">
         	<%= form_for @question, remote: true do |f| %>
 				<div id="field">
@@ -38,9 +21,9 @@
 			    <%= f.submit "Post", class: "btn btn-primary" %>
 			<% end %>
 	    </section>
-    </aside>
+    </div>
   </div>
-    <div class="col-md-8">
+    <div class="question-feed">
       <h3>Question Feed</h3>
       	<% if @feed_items.any? %>
 	    	<ol class="microposts">
@@ -48,13 +31,13 @@
 					<div id="question-<%=question.id%>">
 						<!-- <b>home mein question id = <%=question.id%></b> -->
 						<div id="after-delete-comment-<%=question.id%>">
-							<%= link_to gravatar_for(question.user, size: 50), question.user %>
+							<%= link_to gravatar_for(question.user, size: 40), question.user %>
 							<span class="user">
 								<%= link_to question.user.name, question.user %>
 							</span>
-							<span class="content">
+							<p class="content">
 								<%= question.content %>
-							</span>
+							</p>
 							<span class="like-question-<%=question.id%>">
 									
 								<%= link_to like_question_path(question), class: "like", method: :put, remote: true  do%>
