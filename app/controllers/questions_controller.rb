@@ -5,7 +5,9 @@ class QuestionsController < ApplicationController
 	def create
 		@question = current_user.questions.build(question_params)
 		@questions = Question.all
-		@following_users = current_user# if(@question.save)
+		@following_users = current_user
+		@user_questions = current_user.questions
+		# if(@question.save)
 		# 	flash[:success] = "Question Posted Sucssessfully"
 		# 	redirect_to root_url
 		# else
@@ -36,13 +38,17 @@ class QuestionsController < ApplicationController
 			@questions = Question.all
 			@users = current_user
 			@following_users = current_user
-			else
-		@question=Question.all
-	end
+			@user_questions = current_user.questions
+		else
+			@question=Question.all
+		end
 	end
 
 	def destroy
 		@question.destroy
+		@questions = Question.all
+		@following_users = current_user
+		@user_questions = current_user.questions
 		# flash[:success] = "Question deleted Successfully"
 		respond_to do |format|
 				# alert();

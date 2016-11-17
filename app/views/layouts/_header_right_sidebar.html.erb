@@ -1,10 +1,9 @@
-<div class="check-right-navbar">
-	<ul class="rightnavbar">
+<ul class="rightnavbar">
 		<% if logged_in? %>
 			<li class="count-question">
 				<p class="count-text">Questions</p>
 					<div class="count-values">
-						<%= @questions.count %>
+						<%= @user_questions.count %>
 					</div>
 			</li>
 			<li class="count-following">
@@ -35,6 +34,5 @@
 			</li>
 		<% end %>
 	</ul>
-</div>
 
 <!-- ************************************************ -->
