@@ -83,10 +83,11 @@ class QuestionsController < ApplicationController
 		def qsearch
 			@questions = Question.all
 			@following_users = current_user
+	    	@user_questions = current_user.questions
 	    	@question=Question.where("content LIKE ?","%#{params[:qsearch]}%")
 			if params[:qsearch]
-			@questions=Question.tagged_with(params[:qsearch])
-   			 end
+				@questions=Question.tagged_with(params[:qsearch])
+   			end
   		end
 
 	private
