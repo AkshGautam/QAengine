@@ -69,6 +69,13 @@ class QuestionsController < ApplicationController
 		# redirect_to root_url
 	end
 
+		def qsearch
+    	@question=Question.where("content LIKE ?","%#{params[:qsearch]}%")
+			if params[:qsearch]
+			@questions=Question.tagged_with(params[:qsearch])
+   			 end
+  		end
+
 	private
 		def question_params
 			params.require(:question).permit(:content,:tag_list)
@@ -78,4 +85,6 @@ class QuestionsController < ApplicationController
 			@question = current_user.questions.find_by(id: params[:id])
 			redirect_to root_url if @question.nil?
 		end
+
+		
 end

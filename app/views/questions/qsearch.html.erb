@@ -1,0 +1,23 @@
+ <%if @questions.empty?&&@question.empty?%>
+ <h1>No results found</h1>
+ <%end%>
+<% @question.each do |ques| %>
+<h2>Question with searched keyword:</h2>
+<%=ques.user.name%>
+<%= link_to gravatar_for(ques.user, size: 100), ques.user %>
+<%=ques.content%>
+<br>
+<p>
+	Tags:<%=raw ques.tag_list.map{|t| link_to t,tag_path(t)}.join(', ')%>
+</p>
+<%end%>
+<% @questions.each do |ques| %>
+<h2>Tagged Questions:</h2>
+<%=ques.user.name%>
+<%= link_to gravatar_for(ques.user, size: 100), ques.user %>
+<%=ques.content%>
+<br>
+<p>
+	Tags:<%=raw ques.tag_list.map{|t| link_to t,tag_path(t)}.join(', ')%>
+</p>
+<%end%>

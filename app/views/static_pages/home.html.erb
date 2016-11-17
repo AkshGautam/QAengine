@@ -42,6 +42,10 @@
 	    </section>
     </aside>
   </div>
+  <%=form_tag qsearch_questions_path,:method => 'get'  do %>
+	<%= text_field_tag :qsearch,params[:qsearch],placeholder:"search"%>
+	<%=submit_tag 'search'%>
+	<%end%>
  
     <div class="col-md-8">
       <h3>Question Feed</h3>

@@ -13,8 +13,12 @@ Rails.application.routes.draw do
   resources :questions do
     member do
     put "like" => "questions#upvote"
-    put "unlike" => "questions#downvote"      
+    put "unlike" => "questions#downvote"  
+
     end
+    collection do
+    get 'qsearch'    
+  end
   end
 
   resources :comments
