@@ -1,9 +1,11 @@
 class QuestionsController < ApplicationController
 	before_action :logged_in_user, only: [:create, :destroy]
 	before_action :correct_user, only: [:destroy]
+	
 	def create
 		@question = current_user.questions.build(question_params)
-		# if(@question.save)
+		@questions = Question.all
+		@following_users = current_user# if(@question.save)
 		# 	flash[:success] = "Question Posted Sucssessfully"
 		# 	redirect_to root_url
 		# else
@@ -31,9 +33,12 @@ class QuestionsController < ApplicationController
 	def index
 		if params[:tag]
 			@question=Question.tagged_with(params[:tag])
-			else
+			@questions = Question.all
+			@users = current_user
+			@following_users = current_user
+		else
 		@question=Question.all
-	end
+		end
 	end
 
 	def destroy
@@ -70,7 +75,9 @@ class QuestionsController < ApplicationController
 	end
 
 		def qsearch
-    	@question=Question.where("content LIKE ?","%#{params[:qsearch]}%")
+			@questions = Question.all
+			@following_users = current_user
+	    	@question=Question.where("content LIKE ?","%#{params[:qsearch]}%")
 			if params[:qsearch]
 			@questions=Question.tagged_with(params[:qsearch])
    			 end
