@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def new
   	@user = User.new
     @questions = Question.all
+    @questions_all = Question.all
     @user_all = User.all
   end
 

@@ -12,10 +12,17 @@ class StaticPagesController < ApplicationController
   		@feed_items = Question.all
   		@questions = Question.all
       @following_users = @users
-  	end
+    else
+      @questions_all = Question.all    
+      @user_all = User.all
+    end
   end
 
   def contact
+      @questions = Question.all
+      @following_users = current_user
+      @user_all = User.all
+      @questions_all = Question.all
   end
 
   def help
@@ -23,9 +30,10 @@ class StaticPagesController < ApplicationController
 
   def term
     @users = current_user
-    @questions = @users.questions
+    @questions = Question.all
     @following_users = current_user
     @user_all = User.all
+    @questions_all = Question.all
   end 
 
 end

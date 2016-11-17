@@ -116,8 +116,6 @@ li {
 	border-left: 1px solid grey;
 	background-color: #fbfcff;
 	/*border-right: 1px solid grey;*/
-	padding-left: 0.7%;
-	padding-right: 0.7%;
 }
 
 .header-right-sidebar {
@@ -269,8 +267,6 @@ hr {
 	padding-left: 1%;
 	padding-top: 0.5%;
 	padding-bottom: 0.5%;
-	/*border-left: none;*/
-	/*border-right: none;*/
 }
 
 .tags-form-field {
@@ -284,11 +280,45 @@ hr {
 	padding-top: 0.5%;
 	padding-bottom: 0.5%;
 }
+
+.like:hover {
+	text-decoration: none;
+}
 /*-------------------------------*/
 
-/*-----Display Question section---*/
+/*-----Display Question Feed section---*/
+
 .content {
-	width: 100%;
+	padding-left: 5%;
+	padding-right: 5%;
+	color: #31353B;
+	font-family: "Lato";
+	font-size: 14px;
+	/*letter-spacing: 1px;*/
+	/*width: 100%;*/
+}
+
+.nthchild-option:nth-child(odd) {
+	background-color: #f4f5f9;
+}
+
+.nthchild-option:nth-child(even) {
+	background-color: #eef1f7;
+}
+
+.microposts {
+	padding-left: 0px;
+}
+
+.timestamp-question {
+	float: right;
+	margin-bottom: 0px;
+	margin-right: 4.1%;
+	font-size: 85%;
+}
+
+.question-tags {
+
 }
 /*--------------------------------*/
 
@@ -296,6 +326,55 @@ hr {
 
 .comment-field-id {
 	display: none;
+}
+
+.comment-feed {
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 1%;
+	border-bottom: 0.5px solid gray;
+}
+
+.timestamp-comment {
+	float: right;
+	margin-bottom: 0px;
+	margin-right: 0%;
+	font-size: 85%;	
+}
+
+.comment-content {
+	/*padding-left: 1%;*/
+	color: #31353B;
+	font-family: "Lato";
+	font-size: 14px;
+	/*letter-spacing: 1px;*/
+	/*width: 100%;*/
+}
+
+.comment-field {
+	margin-left: 5%;
+}
+
+.comment-field-form {
+	width: 80%;
+	height: 40px;
+	border:0.6px solid gray-lighter;
+	border-radius:10px;
+	outline: none;
+	padding-left: 1%;
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+	/*box-sizing:border-box;*/
+	}
+
+.comment-post-button {
+	float: right;
+	margin-right: 10%;
+	/*margin-bottom: 5%;*/
+}
+
+.comment-post-button-size {
+	width: 150%;
 }
 /*-------------------------------*/
 

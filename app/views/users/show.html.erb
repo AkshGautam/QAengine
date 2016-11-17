@@ -25,7 +25,7 @@
 
 			<li id="question-<%=question.id%>">
 				<div id="after-delete-comment-<%=question.id%>">
-					<%= link_to gravatar_for(question.user, size: 50), question.user %>
+					<%= link_to gravatar_for(question.user, size: 50), question.user, class: "question-feed-gravatar" %>
 					<span class="user"><%= link_to question.user.name, question.user %></span>
 					<span class="content"><%= question.content %></span>
 					<span class="like-question-<%=question.id%>">

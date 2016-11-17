@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   def new
     @questions = Question.all
     @user_all = User.all
+    @questions_all = Question.all    
   end
 
   def create

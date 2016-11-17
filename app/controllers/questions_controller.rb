@@ -4,7 +4,8 @@ class QuestionsController < ApplicationController
 	
 	def create
 		@question = current_user.questions.build(question_params)
-		# if(@question.save)
+		@questions = Question.all
+		@following_users = current_user# if(@question.save)
 		# 	flash[:success] = "Question Posted Sucssessfully"
 		# 	redirect_to root_url
 		# else
