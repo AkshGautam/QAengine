@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/signup', :to => "users#new"
   get 'users/new'
   get 'sessions/new'
+  get '/tagcloud', :to => 'static_pages#tagcloud'
   get 'tags/:tag', to: 'questions#index', as: :tag
   get '/contact', :to => "static_pages#contact"
   get '/term', :to => "static_pages#term"

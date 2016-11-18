@@ -1,4 +1,6 @@
 $("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
 $("#followers").html('<%= @user.followers.count %>');
 $(".rightnavbar").remove();
+
 $(".header-right-sidebar").prepend("<%=j render 'update_right_navbar' %>");
+

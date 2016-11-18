@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
 		respond_to do |format|
 			if(@comment.save)
-				flash[:success] = "Comment Posted Sucssessfully"
+				#flash[:success] = "Comment Posted Sucssessfully"
 				# alert();
 				format.html { redirect_to root_url}
 				# format.json { render '../static_pages/show', status: :created, location: @question}
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
 		@comment.destroy
 		respond_to do |format|
 				# alert();
-				flash[:success] = "Comment deleted Successfully"
+			#	flash[:success] = "Comment deleted Successfully"
 				# flash[:success] = "Question Posted Sucssessfully"
 				format.html { redirect_to root_url}
 				# format.json { render '../static_pages/show', status: :created, location: @question}

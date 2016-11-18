@@ -1,4 +1,7 @@
 class StaticPagesController < ApplicationController
+  def horizontalScroll
+   
+  end
   def home
   	if logged_in?
   		# @all_question = Question.all
@@ -25,6 +28,10 @@ class StaticPagesController < ApplicationController
       @user_all = User.all
       @questions_all = Question.all
       @user_questions = Question.all
+  end
+  def tagcloud
+       @following_users = current_user
+        @user_questions = current_user.questions
   end
 
   def help

@@ -1,0 +1,33 @@
+#tag_cloud
+{
+	width: 900px;
+	line-height: 1.6em;
+	.s{font-size: 0.8em;}
+	.m{font-size: 1.2em;}
+	.l{font-size: 1.8em;}
+	padding-left:20px;
+	margin-top:50px;
+}
+.tag:hover
+{
+	color: #fff;
+}
+.element:hover
+{
+	color:#fff;
+	text-decoration:none;
+}
+.cloudhead
+{
+	text-align:center;
+	color:#4b4d51;
+	height:25px;
+	font-weight:strong;
+	background-color:#fbfcff;
+}
+.element
+{
+	margin-right: 15px;
+	margin-bottom: 50px;
+	padding: 5px;
+}

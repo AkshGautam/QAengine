@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       @user_questions = current_user.questions
     end
   end
+end
 
   def show
   	@user = User.find(params[:id])
