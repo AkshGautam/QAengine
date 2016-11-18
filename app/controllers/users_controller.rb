@@ -6,11 +6,12 @@ class UsersController < ApplicationController
     @questions = Question.all
     @questions_all = Question.all
     @user_all = User.all
+
     if logged_in?
       @user_questions = current_user.questions
+      @following_users
     end
   end
-end
 
   def show
   	@user = User.find(params[:id])
@@ -95,10 +96,9 @@ def update
         flash[:danger] = "Please log in."
         redirect_to login_url
       end
-
-      def correct_user
+    end 
+    def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
   end
-end

@@ -2,9 +2,6 @@
 		<% if logged_in? %>
 			<li class="count-question">
 				<p class="count-text">Questions</p>
-			<%tag_cloud Question.tag_counts,%w[s m l] do|tag,css_class|%>	
-				<%link_to tag.name,tag_path(tag.name),class: css_class%>
-			<%end%>
 					<div class="count-values">
 						<%= @user_questions.count %>
 					</div>
