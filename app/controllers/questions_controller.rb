@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
 		respond_to do |format|
 			if(@question.save)
 				# alert();
-				flash[:success] = "Question Posted Sucssessfully"
+				#flash[:success] = "Question Posted Sucssessfully"
 				format.html { redirect_to root_url}
 				# format.json { render '../static_pages/show', status: :created, location: @question}
 				format.js 
@@ -52,7 +52,7 @@ class QuestionsController < ApplicationController
 		# flash[:success] = "Question deleted Successfully"
 		respond_to do |format|
 				# alert();
-				flash[:success] = "Question Deleted Sucssessfully"
+			#	flash[:success] = "Question Deleted Sucssessfully"
 				format.html { redirect_to root_url}
 				# format.json { render '../static_pages/show', status: :created, location: @question}
 				format.js

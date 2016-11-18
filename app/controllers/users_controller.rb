@@ -6,8 +6,10 @@ class UsersController < ApplicationController
     @questions = Question.all
     @questions_all = Question.all
     @user_all = User.all
+    if logged_in?
     @user_questions = current_user.questions
   end
+end
 
   def show
   	@user = User.find(params[:id])
