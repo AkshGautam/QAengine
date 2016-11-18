@@ -509,3 +509,8 @@ img:hover
 	padding-top: 25px;
 	padding-right: 30px;
 }
+
+.tag_cloud
+{
+	width: 700px;
+}

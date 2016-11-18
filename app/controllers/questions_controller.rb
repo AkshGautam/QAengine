@@ -43,6 +43,8 @@ class QuestionsController < ApplicationController
 
 	def destroy
 		@question.destroy
+		@questions = Question.all
+		@following_users = current_user
 		# flash[:success] = "Question deleted Successfully"
 		respond_to do |format|
 				# alert();
