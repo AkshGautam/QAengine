@@ -9,6 +9,9 @@
 				<%= link_to @user.name , @user %>
 			</h2>
 	    </div>
+	    <span>
+        <%= render 'shared/stats' %> 
+      </span>
 	</div>
 
 <div class = "question-feed">
@@ -103,9 +106,9 @@
 			
 		<% end %> 
 	<% else %>
-		No Question Posted Yet
+		<h1 class="jumbotron", style="text-align:center;padding-top:25%;padding-bottom:25%;">No Question Posted Yet</h1>
 	<% end %>
 </div>
 <% else %>
-  Sign up Now 
+		<h1 class="jumbotron", style="text-align:center;padding-top:25%;padding-bottom:25%;">Sign up Now</h1> 
 <% end %>
