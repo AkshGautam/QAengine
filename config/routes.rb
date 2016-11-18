@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'questions#index', as: :tag
   get '/contact', :to => "static_pages#contact"
   get '/term', :to => "static_pages#term"
+  get '/questions', :to => 'questions#qsearch'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
