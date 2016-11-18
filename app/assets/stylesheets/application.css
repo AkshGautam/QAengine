@@ -648,7 +648,9 @@ img:hover
 {
 	width: 700px;
 }
-#trend
+.trend
 {
 	width:80%;
+	margin-left:2px;
+	padding-right: 1px;
 }
