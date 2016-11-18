@@ -2,6 +2,9 @@
 		<% if logged_in? %>
 			<li class="count-question">
 				<p class="count-text">Questions</p>
+			<%tag_cloud Question.tag_counts,%w[s m l] do|tag,css_class|%>	
+				<%link_to tag.name,tag_path(tag.name),class: css_class%>
+			<%end%>
 					<div class="count-values">
 						<%= @user_questions.count %>
 					</div>
@@ -19,6 +22,7 @@
 				    </a>
 			</li>
 
+
 			<li class="count-following">
 					<p class="count-text">Trending</p>
 					<p class="count-values">10</p>
@@ -33,15 +37,15 @@
 					 </ul>
 					 		</div>
 			</li>
-			
-		<% else %>
+
+		<%else%>
 			<li class="count-question">
 				<p class="count-text">Questions</p>
 					<div class="count-values">
 						<%= @questions_all.count %>
 					</div>
 			</li>
-			<li class="count-member">
+			<li class="count-member", style="margin-bottom:10%;">
 					<p class="count-text">Members</p>
 					<div class="count-values">
 						<%= @user_all.count %>	

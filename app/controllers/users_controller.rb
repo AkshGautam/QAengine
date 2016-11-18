@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     @questions_all = Question.all
     @user_all = User.all
     if logged_in?
-    @user_questions = current_user.questions
+      @user_questions = current_user.questions
+    end
   end
 end
 
