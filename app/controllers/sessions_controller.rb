@@ -3,9 +3,12 @@ class SessionsController < ApplicationController
     @questions = Question.all
     @user_all = User.all
     @questions_all = Question.all    
+    @user_questions = Question.all
   end
 
   def create
+    @user_all = User.all
+    @questions_all = Question.all    
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user

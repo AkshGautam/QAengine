@@ -22,10 +22,7 @@
 			<% end %>
 	    </div>
 	</div>
-							<%=form_tag qsearch_questions_path,:method => 'get'  do %>
-							<%= text_field_tag :qsearch,params[:qsearch],placeholder:"search"%>
-							<%=submit_tag 'search'%>
-							<%end%>
+							
     <div class="question-feed">
      	<h3 style="margin-bottom: 30px; margin-left: 1%;">Question Feed</h3>
       	<% if @feed_items.any? %>

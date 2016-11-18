@@ -5,7 +5,9 @@ class QuestionsController < ApplicationController
 	def create
 		@question = current_user.questions.build(question_params)
 		@questions = Question.all
-		@following_users = current_user# if(@question.save)
+		@following_users = current_user
+		@user_questions = current_user.questions
+		# if(@question.save)
 		# 	flash[:success] = "Question Posted Sucssessfully"
 		# 	redirect_to root_url
 		# else
@@ -36,8 +38,9 @@ class QuestionsController < ApplicationController
 			@questions = Question.all
 			@users = current_user
 			@following_users = current_user
+			@user_questions = current_user.questions
 		else
-		@question=Question.all
+			@question=Question.all
 		end
 	end
 
@@ -45,6 +48,7 @@ class QuestionsController < ApplicationController
 		@question.destroy
 		@questions = Question.all
 		@following_users = current_user
+		@user_questions = current_user.questions
 		# flash[:success] = "Question deleted Successfully"
 		respond_to do |format|
 				# alert();
@@ -79,10 +83,11 @@ class QuestionsController < ApplicationController
 		def qsearch
 			@questions = Question.all
 			@following_users = current_user
+	    	@user_questions = current_user.questions
 	    	@question=Question.where("content LIKE ?","%#{params[:qsearch]}%")
 			if params[:qsearch]
-			@questions=Question.tagged_with(params[:qsearch])
-   			 end
+				@questions=Question.tagged_with(params[:qsearch])
+   			end
   		end
 
 	private
